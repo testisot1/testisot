@@ -34,6 +34,19 @@ router.get('/cars', (req, res, next) => {
   });
 });
 
+router.get('/cars2', (req, res, next) => {
+  db.sequelize.query('SELECT * FROM public.cars', {
+    model: db.Car,
+    mapToModel: true // pass true here if you have any mapped fields
+  })
+  .then((cars) => { 
+    res.render('cars', {
+      title: 'Generator-Express MVC',
+      cars: cars
+    });
+  });
+});
+
 router.post('/add_car', (req, res, next) => {
   var id = req.body.id;
   var mark = req.body.mark;
