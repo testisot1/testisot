@@ -1,0 +1,27 @@
+<% include header %>
+
+  <h1>Автомобили в базе:</h1>
+  <% for(var i = 0; i < cars.length; i++) { %>
+    <p><%-cars[i].mark %></p>
+  <% } %>
+  
+  <h1>Добавить новый автомобиль</h1>
+  <form action="/add_car" method="POST">
+    <p>
+        <label>Id в базе</label>
+        <input type="text" name="id">
+    </p>
+    <p>
+      <label>Марка автомобиля</label>
+      <input type="text" name="mark">
+    </p>
+    <p>
+        <label>Год выпуска</label>
+        <input type="text" name="year">
+    </p>
+    <p>
+      <input type="submit">
+    </p>
+  </form>
+
+<% include footer %>
